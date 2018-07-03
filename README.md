@@ -17,3 +17,4 @@ conda install -c conda-forge tensorflow
 ********************
 conda env remove -n carnd-termXXX
 
+conda install python=3.5  #downgrade
