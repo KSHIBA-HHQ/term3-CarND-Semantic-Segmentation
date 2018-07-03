@@ -1,5 +1,8 @@
 # term3-CarND-Semantic-Segmentation
 
+Microsoft Visual C++ 2015 Redistributable Update 3
+https://www.microsoft.com/ja-JP/download/details.aspx?id=53587
+
 conda update conda
 
 python -m pip install --upgrade pip
