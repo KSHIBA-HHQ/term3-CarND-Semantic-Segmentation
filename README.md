@@ -32,7 +32,10 @@ TensorFlowのインストール
 
 Bash
 (introtensorflow) $ pip --no-cache-dir install -I -U tensorflow
+
 リスト10　TensorFlowをインストールするコマンド（CPU版）
+
 Bash
 (introtensorflow) $ pip --no-cache-dir install -I -U tensorflow-gpu
-リスト11　TensorFlowをインストールするコマンド（GPU版）
+    
+    リスト11　TensorFlowをインストールするコマンド（GPU版）
