@@ -15,6 +15,8 @@ source activate IntroToTensorFlow
 
 conda install -c conda-forge tensorflow
 ********************
+conda info -e コマンドで現存する環境を確認
+
 conda env remove -n carnd-termXXX
 
 conda install python=3.5  #downgrade
