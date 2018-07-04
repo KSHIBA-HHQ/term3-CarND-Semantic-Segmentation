@@ -18,3 +18,8 @@ conda install -c conda-forge tensorflow
 conda env remove -n carnd-termXXX
 
 conda install python=3.5  #downgrade
+
+不要になったパッケージやキャッシュを削除
+　不要な環境の削除ができたら、今度はパッケージやキャッシュを削除しましょう。 conda clean コマンドを利用すると、使われていないパッケージやキャッシュを削除することができます。 一番簡単には –all オプションを指定して、削除できるものは全て削除するのが良いかも知れません。
+
+$ conda clean --all
