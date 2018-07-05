@@ -3,7 +3,17 @@
 # added by Miniconda3 installer
 export PATH="/home/uda/miniconda3/bin:$PATH"
 export PYTHONPATH="/home/uda/miniconda3/lib/python3.6/site-packages:$PYTHONPATH"
+#######################################
+######hepler.py line91
 
+#gt_bg = gt_bg.reshape(*gt_bg.shape, 1)    #default(syntax error)
+
+#gt_bg = gt_bg.reshape(gt_bg.shape + (1,))  #other 1
+
+gt_bg = gt_bg[...,None]                	   #other 2
+######      
+
+########################################
 curl -kL https://bootstrap.pypa.io/get-pip.py | sudo python3
 
 pip install --upgrade pip
