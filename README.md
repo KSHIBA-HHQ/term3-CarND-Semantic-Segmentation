@@ -9,6 +9,9 @@ pip install --upgrade pip
 pip uninstall numpy
 pip install numpy
 
+
+pip uninstall tensorflow tensorflow-tensorboard
+pip install tensorflow==1.5
 **************************************************************
 bad magic number in 'application': b'\x03\xf3\r\n': ImportError
 find . -name \*.pyc -delete
