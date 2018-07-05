@@ -9,6 +9,10 @@ pip install --upgrade pip
 pip uninstall numpy
 pip install numpy
 
+
+find . -name \*.pyc -delete
+
+
 **********************************************************************************
 Microsoft Visual C++ 2015 Redistributable Update 3
 https://www.microsoft.com/ja-JP/download/details.aspx?id=53587
