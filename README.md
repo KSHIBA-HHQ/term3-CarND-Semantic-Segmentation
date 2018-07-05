@@ -39,3 +39,6 @@ Bash
 (introtensorflow) $ pip --no-cache-dir install -I -U tensorflow-gpu
     
     リスト11　TensorFlowをインストールするコマンド（GPU版）
+    
+##############################################################################    
+conda create --name py34 python=3.4    
