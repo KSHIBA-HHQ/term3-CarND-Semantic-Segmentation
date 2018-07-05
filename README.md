@@ -13,6 +13,7 @@ conda update conda
 
   
 python -m pip install --upgrade pip  #pip-uninstall
+
 python get_py.py                     #pip-reinstall  
 
 pip install --ignore-installed --upgrade tensorflow 
