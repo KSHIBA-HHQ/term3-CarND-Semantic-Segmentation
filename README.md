@@ -5,12 +5,16 @@ export PATH="/home/uda/miniconda3/bin:$PATH"
 export PYTHONPATH="/home/uda/miniconda3/lib/python3.6/site-packages:$PYTHONPATH"
 
 curl -kL https://bootstrap.pypa.io/get-pip.py | sudo python3
+
 pip install --upgrade pip
+
 pip uninstall numpy
+
 pip install numpy
 
-
+*************************************************
 pip uninstall tensorflow tensorflow-tensorboard
+
 pip install tensorflow==1.5
 **************************************************************
 bad magic number in 'application': b'\x03\xf3\r\n': ImportError
