@@ -3,6 +3,8 @@
 # added by Miniconda3 installer
 export PATH="/home/uda/miniconda3/bin:$PATH"
 export PYTHONPATH="/home/uda/miniconda3/lib/python3.6/site-packages:$PYTHONPATH"
+
+curl -kL https://bootstrap.pypa.io/get-pip.py | sudo python3
 pip install --upgrade pip
 pip uninstall numpy
 pip install numpy
