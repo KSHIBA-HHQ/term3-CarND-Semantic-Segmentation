@@ -4,16 +4,19 @@
 export PATH="/home/uda/miniconda3/bin:$PATH"
 export PYTHONPATH="/home/uda/miniconda3/lib/python3.6/site-packages:$PYTHONPATH"
 #######################################
-######hepler.py line91
+
+[ hepler.py line91   : Syntax Error ]
 
 #gt_bg = gt_bg.reshape(*gt_bg.shape, 1)    #default(syntax error)
 
 #gt_bg = gt_bg.reshape(gt_bg.shape + (1,))  #other 1
 
 gt_bg = gt_bg[...,None]                	   #other 2
+
 ######      
 
 ########################################
+
 curl -kL https://bootstrap.pypa.io/get-pip.py | sudo python3
 
 pip install --upgrade pip
@@ -23,20 +26,25 @@ pip uninstall numpy
 pip install numpy
 
 *************************************************
+
 pip uninstall tensorflow tensorflow-tensorboard
 
 pip install tensorflow==1.5
+
 **************************************************************
-bad magic number in 'application': b'\x03\xf3\r\n': ImportError
+[error] bad magic number in 'application': b'\x03\xf3\r\n': ImportError
+
 find . -name \*.pyc -delete
 
 
 **********************************************************************************
 Microsoft Visual C++ 2015 Redistributable Update 3
+
 https://www.microsoft.com/ja-JP/download/details.aspx?id=53587
 
-conda update conda
+######################################################
 
+conda update conda
   
 python -m pip install --upgrade pip  #pip-uninstall
 
@@ -49,7 +57,9 @@ conda create --name=IntroToTensorFlow python=3 anaconda
 source activate IntroToTensorFlow
 
 conda install -c conda-forge tensorflow
+
 ********************
+
 conda env list
 
 conda info -e コマンドで現存する環境を確認
