@@ -1,8 +1,11 @@
 # term3-CarND-Semantic-Segmentation
 
 # added by Miniconda3 installer
+
 export PATH="/home/uda/miniconda3/bin:$PATH"
+
 export PYTHONPATH="/home/uda/miniconda3/lib/python3.6/site-packages:$PYTHONPATH"
+
 #######################################
 
 [ hepler.py line91   : Syntax Error ]
@@ -52,7 +55,11 @@ python get_py.py                     #pip-reinstall
 
 pip install --ignore-installed --upgrade tensorflow 
 
-conda create --name=IntroToTensorFlow python=3 anaconda
+term1= conda create --name=IntroToTensorFlow python=3 anaconda
+
+term3=  conda create --name=IntroToTensorFlow python=3.4 anaconda
+
+
 
 source activate IntroToTensorFlow
 
@@ -78,11 +85,13 @@ TensorFlowのインストール
 　前述の通り、TensorFlowのインストールはconda installではなくpip installが公式に推奨されている。これに従い、pip installコマンドを用いる。CPU版とGPU版でパッケージ名が異なるため、おのおのの環境に合わせて必要なパッケージをインストールする。GPU版は事前設定が必要であることは前述の通りだ。
 
 Bash
-(introtensorflow) $ pip --no-cache-dir install -I -U tensorflow
+
+(introtensorflow) $ pip --no-cache-dir install -I -U tensorflow==1.5
 
 リスト10　TensorFlowをインストールするコマンド（CPU版）
 
 Bash
+
 (introtensorflow) $ pip --no-cache-dir install -I -U tensorflow-gpu
     
     リスト11　TensorFlowをインストールするコマンド（GPU版）
