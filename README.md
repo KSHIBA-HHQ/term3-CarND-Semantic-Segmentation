@@ -41,4 +41,4 @@ Bash
     リスト11　TensorFlowをインストールするコマンド（GPU版）
     
 ##############################################################################    
-conda create --name py34 python=3.4    
+conda create --name=IntroToTensorFlow python=3.4 anaconda
