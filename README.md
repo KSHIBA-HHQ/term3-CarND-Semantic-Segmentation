@@ -1,5 +1,9 @@
 # term3-CarND-Semantic-Segmentation
 
+# added by Miniconda3 installer
+export PATH="/home/uda/miniconda3/bin:$PATH"
+export PYTHONPATH="/home/uda/miniconda3/lib/python3.6/site-packages:$PYTHONPATH"
+**********************************************************************************
 Microsoft Visual C++ 2015 Redistributable Update 3
 https://www.microsoft.com/ja-JP/download/details.aspx?id=53587
 
