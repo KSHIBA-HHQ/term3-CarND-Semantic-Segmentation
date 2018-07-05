@@ -4,6 +4,8 @@
 export PATH="/home/uda/miniconda3/bin:$PATH"
 export PYTHONPATH="/home/uda/miniconda3/lib/python3.6/site-packages:$PYTHONPATH"
 pip install --upgrade pip
+pip uninstall numpy
+pip install numpy
 
 **********************************************************************************
 Microsoft Visual C++ 2015 Redistributable Update 3
