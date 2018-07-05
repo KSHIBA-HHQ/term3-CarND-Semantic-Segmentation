@@ -9,7 +9,8 @@ pip install --upgrade pip
 pip uninstall numpy
 pip install numpy
 
-
+**************************************************************
+bad magic number in 'application': b'\x03\xf3\r\n': ImportError
 find . -name \*.pyc -delete
 
 
