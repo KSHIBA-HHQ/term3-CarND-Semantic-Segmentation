@@ -11,7 +11,10 @@ https://www.microsoft.com/ja-JP/download/details.aspx?id=53587
 
 conda update conda
 
+pip-uninstall  
 python -m pip install --upgrade pip
+pip-reinstall  
+python get_py.py
 
 pip install --ignore-installed --upgrade tensorflow 
 
