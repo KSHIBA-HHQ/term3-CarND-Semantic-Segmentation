@@ -16,17 +16,9 @@ export PYTHONPATH="/home/uda/miniconda3/lib/python3.6/site-packages:$PYTHONPATH"
 
 gt_bg = gt_bg[...,None]                	   #other 2
 
-######      
+##########################
 
-########################################
-
-curl -kL https://bootstrap.pypa.io/get-pip.py | sudo python3
-
-pip install --upgrade pip
-
-pip uninstall numpy
-
-pip install numpy
+conda update conda
 
 *************************************************
 
@@ -35,6 +27,7 @@ pip uninstall tensorflow tensorflow-tensorboard
 pip install tensorflow==1.5
 
 **************************************************************
+
 [error] bad magic number in 'application': b'\x03\xf3\r\n': ImportError
 
 find . -name \*.pyc -delete
@@ -45,15 +38,25 @@ Microsoft Visual C++ 2015 Redistributable Update 3
 
 https://www.microsoft.com/ja-JP/download/details.aspx?id=53587
 
+pip uninstall numpy
+
+pip install numpy
+
 ######################################################
 
-conda update conda
+[ pip installation ]
+
+
+curl -kL https://bootstrap.pypa.io/get-pip.py | sudo python3
+
+pip install --upgrade pip
   
 python -m pip install --upgrade pip  #pip-uninstall
 
 python get_py.py                     #pip-reinstall  
 
-pip install --ignore-installed --upgrade tensorflow 
+
+-------------------------- 
 
 term1= conda create --name=IntroToTensorFlow python=3 anaconda
 
@@ -64,6 +67,8 @@ term3=  conda create --name=IntroToTensorFlow python=3.4 anaconda
 source activate IntroToTensorFlow
 
 conda install -c conda-forge tensorflow
+
+pip install --ignore-installed --upgrade tensorflow
 
 ********************
 
