@@ -2,6 +2,8 @@
 
 # added by Miniconda3 installer
 
+conda update -n base conda
+
 export PATH="/home/uda/miniconda3/bin:$PATH"
 
 export PYTHONPATH="/home/uda/miniconda3/lib/python3.6/site-packages:$PYTHONPATH"
