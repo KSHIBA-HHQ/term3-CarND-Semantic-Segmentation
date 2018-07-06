@@ -4,6 +4,8 @@
 
 conda update -n base conda
 
+pip --no-cache-dir install -U tqdm
+
 export PATH="/home/uda/miniconda3/bin:$PATH"
 
 export PYTHONPATH="/home/uda/miniconda3/lib/python3.6/site-packages:$PYTHONPATH"
