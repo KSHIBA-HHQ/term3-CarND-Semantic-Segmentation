@@ -19,6 +19,7 @@ else:
 
 
 def load_vgg(sess, vgg_path):
+    #kshiba[2:03] - lesson10 Scene Understanding- 7.FCN-8 Encoder
     """
     Load Pretrained VGG Model into TensorFlow.
     :param sess: TensorFlow Session
@@ -33,12 +34,25 @@ def load_vgg(sess, vgg_path):
     vgg_layer3_out_tensor_name = 'layer3_out:0'
     vgg_layer4_out_tensor_name = 'layer4_out:0'
     vgg_layer7_out_tensor_name = 'layer7_out:0'
-    
-    return None, None, None, None, None
+
+
+    #kshiba[7:15]
+    tf.save_model.loader.load(sess,[vgg_tag],vgg_tag)
+    #kshiba[5:15]
+    graph=tf.get_default_graph()	    
+    #kshiba[5:48]
+    w1=graph.get_tensor_by_name(vgg_input_tensor_name)
+    #kshiba[6:27]
+    keep=graph.get_tensor_by_name(vgg_keep_prob_tensor_name)
+
+    #kshiba[6:43]
+    #return None, None, None, None, None
+    return W1, keep, None, None, None
 tests.test_load_vgg(load_vgg, tf)
 
 
 def layers(vgg_layer3_out, vgg_layer4_out, vgg_layer7_out, num_classes):
+    #kshiba[8:55]  lesson10 SceneUnderStanding 8.FCN-8-Decoder    
     """
     Create the layers for a fully convolutional network.  Build skip-layers using the vgg layers.
     :param vgg_layer3_out: TF Tensor for VGG Layer 3 output
@@ -48,11 +62,23 @@ def layers(vgg_layer3_out, vgg_layer4_out, vgg_layer7_out, num_classes):
     :return: The Tensor for the last layer of output
     """
     # TODO: Implement function
+    #kshiba[11:39]
+    conv_1x1=tf.layers.conv2d(vgg_layer7_out,num_classes,1,padding='same',              
+				kernel_regularsize=tf.contrib.layers.l2_regularizer(1e-3) )
+    #kshiba[13:39]             
+    output=tf.layers.conv2d_transpose(conv1x1,num_classes,4,2,padding='same',
+				kernel_regularsize=tf.contrib.layers.l2_regularizer(1e-3) )                      
+    #kshiba[16:59]  lesson10 SceneUnderStanding 8.FCN-8-Decoder  
+
+    #kshiba[30:54]
+    tf.Print(output,[tf.shape(output[1:3])])
+
     return None
 tests.test_layers(layers)
 
 
 def optimize(nn_last_layer, correct_label, learning_rate, num_classes):
+    #kshiba[16:59] lesson10 SceneUnderStanding 9.FCN-8-Classfication & Loss  
     """
     Build the TensorFLow loss and optimizer operations.
     :param nn_last_layer: TF Tensor of the last layer in the neural network
@@ -62,6 +88,9 @@ def optimize(nn_last_layer, correct_label, learning_rate, num_classes):
     :return: Tuple of (logits, train_op, cross_entropy_loss)
     """
     # TODO: Implement function
+    #kshiba[19:27]
+    logits=tf.reshape(input,(-1,num_classes) 
+
     return None, None, None
 tests.test_optimize(optimize)
 
@@ -82,6 +111,13 @@ def train_nn(sess, epochs, batch_size, get_batches_fn, train_op, cross_entropy_l
     :param learning_rate: TF Placeholder for learning rate
     """
     # TODO: Implement function
+    """
+    #kshiba[21:22]
+    for epochs in epochs:
+         for image , label in get_batches_fn(batch_size):
+            # Training
+            pass
+    """
     pass
 tests.test_train_nn(train_nn)
 
@@ -107,9 +143,14 @@ def run():
         get_batches_fn = helper.gen_batch_function(os.path.join(data_dir, 'data_road/training'), image_shape)
 
         # OPTIONAL: Augment Images for better results
-        #  https://datascience.stackexchange.com/questions/5224/how-to-prepare-augment-images-for-neural-network
+        #  https://datascience.stackexchange.com/qt,layer4_out,uestions/5224/how-to-prepare-augment-images-for-neural-network
 
         # TODO: Build NN using load_vgg, layers, and optimize function
+        # kshiba[22:48]
+        input_image,keep_prob,layer3_out,layer4_out,layer7_out= load_vgg(sess,vgg_path)                                       
+        # kshiba[23:37]
+        layer_output = layers(layer3_out,layer4_out,layer7_out,num_classes)                 
+
 
         # TODO: Train NN using the train_nn function
 
