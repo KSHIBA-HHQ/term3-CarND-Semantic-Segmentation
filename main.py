@@ -39,7 +39,7 @@ def load_vgg(sess, vgg_path):
 
  
     #kshiba[7:15]
-    tf.save_model.loader.load(sess,[vgg_tag],vgg_tag)
+    tf.saved_model.loader.load(sess, [vgg_tag], vgg_path)
     """###################
     #kshiba[5:15]
     graph=tf.get_default_graph()	    
@@ -57,11 +57,8 @@ def load_vgg(sess, vgg_path):
     layer3_out = tf.get_default_graph().get_tensor_by_name(vgg_layer3_out_tensor_name)
     layer4_out = tf.get_default_graph().get_tensor_by_name(vgg_layer4_out_tensor_name)
     layer7_out = tf.get_default_graph().get_tensor_by_name(vgg_layer7_out_tensor_name)
-    
+
     return image_input, keep_prob, layer3_out, layer4_out, layer7_out
-
-
-
 tests.test_load_vgg(load_vgg, tf)
 
 
