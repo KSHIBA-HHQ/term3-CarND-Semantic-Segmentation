@@ -15,7 +15,7 @@ dependencies:
         - moviepy
         - tensorflow==1.5
 
-
+#envとしてconda env create -f ***.ymlで確保
 #python==3.5　必須　　
 #tensorflow==1.4でも？？　
 #SSEの警告がでるが無視してよし
