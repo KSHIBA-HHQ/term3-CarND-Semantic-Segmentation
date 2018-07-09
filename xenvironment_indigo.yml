@@ -3,7 +3,7 @@ channels:
     - https://conda.anaconda.org/menpo
     - conda-forge
 dependencies:
-    - python==3.4
+    - python==3.5
     - numpy
     - matplotlib
     - jupyter
@@ -14,3 +14,11 @@ dependencies:
     - pip:
         - moviepy
         - tensorflow==1.5
+
+
+#python==3.5　必須　　
+#tensorflow==1.4でも？？　
+#SSEの警告がでるが無視してよし
+#.bashrcのパスは触らなくてよし（以下例ディフォルトのままで可能）
+#export PYTHONPATH=~/miniconda3/lib/python3.6/site-packages:$PYTHONPATH
+#export PATH="/home/kshiba/miniconda3/bin:$PATH"
