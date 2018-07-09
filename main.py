@@ -250,7 +250,7 @@ def run():
         # @add Train-function kshiba
         train_nn(sess, epochs, batch_size, get_batches_fn, train_op, 
                  cross_entropy_loss, input_image,
-                 correct_label, keep_prob, learning_rate):
+                 correct_label, keep_prob, learning_rate)
 
         # TODO: Save inference data using helper.save_inference_samples
         # @del commentout kshiba
