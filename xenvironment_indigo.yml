@@ -1,0 +1,16 @@
+name: carnd-t3p2
+channels:
+    - https://conda.anaconda.org/menpo
+    - conda-forge
+dependencies:
+    - python==3.4
+    - numpy
+    - matplotlib
+    - jupyter
+    - pillow
+    - scipy
+    - ffmpeg
+    - imageio==2.1.1
+    - pip:
+        - moviepy
+        - tensorflow==1.5
