@@ -233,8 +233,9 @@ def run():
         # kshiba[22:48]
         input_image,keep_prob,layer3_out,layer4_out,layer7_out= load_vgg(sess,vgg_path)                                       
         # kshiba[23:37]
-        layer_output = layers(layer3_out,layer4_out,layer7_out,num_classes)                 
-        
+        #layer_output = layers(layer3_out,layer4_out,layer7_out,num_classes)                 
+        nn_last_layer =layers(layer3_out,layer4_out,layer7_out,num_classes)
+
         # @add optimize-function kshiba
         # At 1st,Set TF placeholders for optimize
         correct_label = tf.placeholder(tf.int32, [None, None, None, num_classes], name='correct_label')
