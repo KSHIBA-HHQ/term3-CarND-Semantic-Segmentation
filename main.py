@@ -21,6 +21,7 @@ else:
 
 
 def load_vgg(sess, vgg_path):
+    print('start load_vgg')
     #kshiba[2:03] - lesson10 Scene Understanding- 7.FCN-8 Encoder
     """
     Load Pretrained VGG Model into TensorFlow.
@@ -63,6 +64,7 @@ tests.test_load_vgg(load_vgg, tf)
 
 
 def layers(vgg_layer3_out, vgg_layer4_out, vgg_layer7_out, num_classes):
+    print('start layers')
     #kshiba[8:55]  lesson10 SceneUnderStanding 8.FCN-8-Decoder    
     """
     Create the layers for a fully convolutional network.  Build skip-layers using the vgg layers.
@@ -131,6 +133,7 @@ tests.test_layers(layers)
 
 
 def optimize(nn_last_layer, correct_label, learning_rate, num_classes):
+    print('start optimize')
     #kshiba[16:59] lesson10 SceneUnderStanding 9.FCN-8-Classfication & Loss  
     """
     Build the TensorFLow loss and optimizer operations.
@@ -162,8 +165,10 @@ def optimize(nn_last_layer, correct_label, learning_rate, num_classes):
 tests.test_optimize(optimize)
 
 
+import time
 def train_nn(sess, epochs, batch_size, get_batches_fn, train_op, cross_entropy_loss, input_image,
              correct_label, keep_prob, learning_rate):
+    print('start train_nn')
     """
     Train neural network and print out the loss during training.
     :param sess: TF Session
@@ -192,18 +197,32 @@ def train_nn(sess, epochs, batch_size, get_batches_fn, train_op, cross_entropy_l
     
     print("Training...")
     print()
+
     for i in range(epochs):
+        n=0        
         print("EPOCH {} ...".format(i+1))
         for image, label in get_batches_fn(batch_size):
-            _, loss = sess.run([train_op, cross_entropy_loss], 
+            
+           Ts=time.time()
+           _, loss = sess.run([train_op, cross_entropy_loss], 
                                feed_dict={input_image: image, correct_label: label,                                keep_prob: 0.5, learning_rate: 0.0009})
-            print("Loss: = {:.3f}".format(loss))
-        print()
+            
+            
+           Te=time.time()
+           print("Loss: = {:.3f} ".format(loss) , "N:=",n+1 , " {:.3f}s".format(Te-Ts))
+            
+           #@ [try] tensorboard --logdir=/ディレクトリの絶対パス/mnist1_data
+           if (i==0)&(n==0):
+               summary_writer = tf.summary.FileWriter('train_data', graph=sess.graph) 
+              
+           n=n+1    
+           print()
 
 tests.test_train_nn(train_nn)
 
 
 def run():
+    print('start run')
     num_classes = 2
     image_shape = (160, 576)
     data_dir = './data'
@@ -223,15 +242,22 @@ def run():
         # Create function to get batches
         get_batches_fn = helper.gen_batch_function(os.path.join(data_dir, 'data_road/training'), image_shape)
 
-        epochs = 1      #epochs = 50
-        batch_size = 10  #batch_size = 5
+        epochs = 50
+        batch_size = 5
 
         # OPTIONAL: Augment Images for better results
         #  https://datascience.stackexchange.com/qt,layer4_out,uestions/5224/how-to-prepare-augment-images-for-neural-network
 
         # TODO: Build NN using load_vgg, layers, and optimize function
         # kshiba[22:48]
-        input_image,keep_prob,layer3_out,layer4_out,layer7_out= load_vgg(sess,vgg_path)                                       
+        input_image,keep_prob,layer3_out,layer4_out,layer7_out= load_vgg(sess,vgg_path)
+        print ( keep_prob ,keep_prob.shape)
+        print ( input_image ,input_image.shape)
+        print ( layer3_out ,layer3_out.shape)
+        print ( layer4_out ,layer4_out.shape)
+        print ( layer7_out ,layer7_out.shape)
+		
+		
         # kshiba[23:37]
         #layer_output = layers(layer3_out,layer4_out,layer7_out,num_classes)                 
         nn_last_layer =layers(layer3_out,layer4_out,layer7_out,num_classes)
@@ -258,5 +284,11 @@ def run():
         # OPTIONAL: Apply the trained model to a video
 
 
+#コマンドラインから直接スクリプトファイルを実行した場合は
+#「name_という変数（属性）の中に自動的に__main__を代入する」操作が
+#一番はじめに水面下で行われる。
 if __name__ == '__main__':
+    print("main start")
     run()
+
+
