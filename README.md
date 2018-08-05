@@ -1,5 +1,15 @@
 # term3-CarND-Semantic-Segmentation
 
+
+wget https://bootstrap.pypa.io/get-pip.py
+
+でバージョンアップされたpipを直接ダウンロードして
+
+sudo python3 get-pip.py 
+
+で普通にインストールしたらでけた。
+ 
+ 
 # added by Miniconda3 installer
 
 conda update -n base conda
